@@ -6,140 +6,176 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Webpage</title>
   <script defer src="./bundle.js"></script>
-  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/landing_style.css">
   <script src="https://kit.fontawesome.com/d09d6f8054.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="header">
-    <div class="container">
-      <nav>
-        <i class="fa-solid fa-code">  <h4><span>jo</span>cod<span>e</span>ng</h4></i>
-        <ul id="sidemenu">
-          <li><a href="#header">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contacts</a></li>
-          <li><a href="#hobbies">Hobbies</a></li>
-          <i class="fa-regular fa-circle-xmark fas" onclick="closeMenu()"></i>
-        </ul>
-        <i class="fa-solid fa-bars fas" onclick="openMenu()"></i>
-      </nav>
-      <div class="header-text">
-        <p>BS Information Technology 3rd Year</p>
-        <h1>Hi, I'm <span>Joe Cahayagan</span><br> from Iligan City,<br>Lanao del Norte,<br> Philippines</h1>
-      </div>
-    </div>
-  </div>
-  <div id="about">
-    <div class="container-about">
-      <div class="row">
-        <div class="about-col-1">
-          <img src="images/myPic.jpg" alt="my pic">
-        </div>
-        <div class="about-col-2">
-          <h1 class="subtitle">About me</h1>
-          <p class="about-text">I am a 3rd year BS Information Technology student currently studying at Mindanao State University - Iligan Institute of Technology. I currently live at Purok 1 Brgy. Santiago, Iligan City. I took an interest in programming during my senior Highschool when we undertook a work immersion program. I was placed under an IT company and so was influenced by my environment. Now, I'm continuously honing my critical-thinking, problem-solving, and programming skills.</p>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="#" method="post" id="login_form" name="login_form" enctype="multipart/form-data" class="sign-in-form">
+          <h2 class="title">Sign in</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name="login_email" id="login_email" placeholder="Email">
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="login_password" id="login_password" placeholder="Password">
+          </div>
+          <input type="submit" value="Login" id="login" name="login" class="btn solid">
 
-          <div class="tab-titles">
-            <p class="tab-links active-link" onclick="openTab('skills')">Skills</p>
-            <p class="tab-links" onclick="openTab('experience')">Experience</p>
-            <p class="tab-links" onclick="openTab('education')">Educations</p>
+          <p class="social-text">Or Sign in with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
           </div>
-          <div class="tab-contents active-content" id="skills">
-            <ul>
-              <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
-              <li><span>Web Development</span><br>Web app Development</li>
-            </ul>
+        </form>
+
+        <form action="#" method="post" id="registration_form" name="registration_form" enctype="multipart/form-data" class="sign-up-form">
+          <h2 class="title">Sign up</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" id="username" placeholder="Username">
           </div>
-          <div class="tab-contents" id="experience">
-            <ul>
-              <li><span>2022 - Current</span><br>Improving designing Web/App interfaces</li>
-              <li><span>2020 - 2022</span><br>Introduced to Programming</li>
-              <li><span>2019 - 2020</span><br>Developed interest in programming</li>
-            </ul>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="text" name="email" id="email" placeholder="Email">
           </div>
-          <div class="tab-contents" id="education">
-            <ul>
-              <li><span>2020 - Current</span><br>Mindanao State University - Iligan Institute of Technology</li>
-              <li><span>2018 - 2020</span><br>Iligan City National Highschool - Senior Highschool</li>
-              <li><span>2014 - 2018</span><br>Iligan City National Highschool - Junior Highschool</li>
-            </ul>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" id="password" placeholder="Password">
           </div>
+          <input type="submit" value="Register" id="register" name="register" class="btn solid">
+
+          <p class="social-text">Or Sign in with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>New here?</h3>
+          <button class="btn transparent" id="sign-up-btn">Sign up</button>
         </div>
+
+        <img src="images/undraw_people_re_8spw.svg" class="image" alt="">
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>Already have an Account?</h3>
+          <button class="btn transparent" id="sign-in-btn">Sign in</button>
+        </div>
+
+        <img src="images/undraw_laravel_and_vue_-59-tp.svg" class="image" alt="">
       </div>
     </div>
   </div>
-  <div id="hobbies">
-    <div class="container-hobbies">
-      <div class="subtitle">Hobbies</div>
-      <div class="hobby-list">
-        <div class="hobby">
-          <img src="images/learning.jpg" alt="learning">
-          <div class="layer">
-            <h3>Coding</h3>
-            <p>I keep on learning how to code day by day, slowly yet steady.</p>
-          </div>
-        </div>
-        <div class="hobby">
-          <img src="images/reading.jpg" alt="reading">
-          <div class="layer">
-            <h3>Reading</h3>
-            <p>I read novels, discovery articles, manhwa, manhua, and manga during free time.</p>
-          </div>
-        </div>
-        <div class="hobby">
-          <img src="images/watching.jpg" alt="watching anime">
-          <div class="layer">
-            <h3>Anime</h3>
-            <p>I enjoy watching anime a lot, coupled with a cup of coffee and bread.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="contact">
-    <div class="container-contact">
-      <div class="row-contact">
-        <div class="contact-left">
-          <h1 class="subtitle">Contact Me</h1>
-          <p><i class="fa-solid fa-paper-plane"></i> joe.cahayagan@g.msuiit.edu.ph</p>
-          <p><i class="fa-solid fa-phone"></i> 0965 946 2654</p>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/joecylicious" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://twitter.com/Joecylicious1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://www.instagram.com/jeekoneeto/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="message">
-    <p>A personal Webpage made with <i class="fa-solid fa-heart"></i> </p>
-  </div>
-  
+
   <script>
-    
-    var tabLinks = document.getElementsByClassName("tab-links");
-    var tabContents = document.getElementsByClassName("tab-contents");
-    var sideMenu = document.getElementById("sidemenu");
+    const sign_in_btn = document.querySelector("#sign-in-btn");
+    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".container");
 
-    function openTab(tabName) {
-      for(tabLink of tabLinks) {
-        tabLink.classList.remove("active-link");
-      }
-      for(tabContent of tabContents) {
-        tabContent.classList.remove("active-content");
-      }
-      event.currentTarget.classList.add("active-link");
-      document.getElementById(tabName).classList.add("active-content")
-    }
+    sign_up_btn.addEventListener('click', ()=>{
+      container.classList.add("sign-up-mode");
+    });
 
-    function openMenu() {
-      sideMenu.style.right = "0";
-    }
-    function closeMenu() {
-      sideMenu.style.right = "-200px";
-    }
+    sign_in_btn.addEventListener('click', ()=>{
+      container.classList.remove("sign-up-mode");
+    });
+  </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAwFhY16WbjZ2kjnxk7U8gH6G3xEYEYwk8",
+      authDomain: "pbbapp-3cda1.firebaseapp.com",
+      projectId: "pbbapp-3cda1",
+      storageBucket: "pbbapp-3cda1.appspot.com",
+      messagingSenderId: "248758143610",
+      appId: "1:248758143610:web:37bd5b05082b7cac1e09c3",
+      measurementId: "G-NJEBDSWJYC"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    console.log(app);
+
+    //----- New Registration code start	  
+    document.getElementById("register").addEventListener("click", function() {
+      var email =  document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      
+      //For new registration
+      createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        alert("Registration successfully!!");
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        console.log(errorMessage);
+        alert(error);
+      });		  		  
+    });
+    //----- End
+    //----- Login code start	  
+    document.getElementById("login").addEventListener("click", function() {
+      var email =  document.getElementById("login_email").value;
+      var password = document.getElementById("login_password").value;
+
+      signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        alert(user.email+" Login successfully!!!");
+        window.location.assign("personalWebpage.html")
+        // document.getElementById('logout').style.display = 'block';
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert(errorMessage);
+      });		  		  
+    });
+    //----- End
+    // //----- Logout code start	  
+    // document.getElementById("logout").addEventListener("click", function() {
+    //   signOut(auth).then(() => {
+    //     // Sign-out successful.
+    //     console.log('Sign-out successful.');
+    //     alert('Sign-out successful.');
+    //     document.getElementById('logout').style.display = 'none';
+    //   }).catch((error) => {
+    //     // An error happened.
+    //     console.log('An error happened.');
+    //   });		  		  
+    // });
+    // //----- End
   </script>
 </body>
 </html>

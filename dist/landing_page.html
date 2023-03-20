@@ -13,17 +13,17 @@
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="" class="sign-in-form">
+        <form action="#" method="post" id="login_form" name="login_form" enctype="multipart/form-data" class="sign-in-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username">
+            <input type="text" name="login_email" id="login_email" placeholder="Email">
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password">
+            <input type="password" name="login_password" id="login_password" placeholder="Password">
           </div>
-          <input type="submit" value="Login" class="btn solid">
+          <input type="submit" value="Login" id="login" name="login" class="btn solid">
 
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
@@ -34,21 +34,21 @@
           </div>
         </form>
 
-        <form action="" class="sign-up-form">
+        <form action="#" method="post" id="registration_form" name="registration_form" enctype="multipart/form-data" class="sign-up-form">
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username">
+            <input type="text" name="username" id="username" placeholder="Username">
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="text" placeholder="Email">
+            <input type="text" name="email" id="email" placeholder="Email">
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password">
+            <input type="password" name="password" id="password" placeholder="Password">
           </div>
-          <input type="submit" value="Register" class="btn solid">
+          <input type="submit" value="Register" id="register" name="register" class="btn solid">
 
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
@@ -80,6 +80,102 @@
     </div>
   </div>
 
-  <script src="landing.js"></script>
+  <script>
+    const sign_in_btn = document.querySelector("#sign-in-btn");
+    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".container");
+
+    sign_up_btn.addEventListener('click', ()=>{
+      container.classList.add("sign-up-mode");
+    });
+
+    sign_in_btn.addEventListener('click', ()=>{
+      container.classList.remove("sign-up-mode");
+    });
+  </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAwFhY16WbjZ2kjnxk7U8gH6G3xEYEYwk8",
+      authDomain: "pbbapp-3cda1.firebaseapp.com",
+      projectId: "pbbapp-3cda1",
+      storageBucket: "pbbapp-3cda1.appspot.com",
+      messagingSenderId: "248758143610",
+      appId: "1:248758143610:web:37bd5b05082b7cac1e09c3",
+      measurementId: "G-NJEBDSWJYC"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    console.log(app);
+
+    //----- New Registration code start	  
+    document.getElementById("register").addEventListener("click", function() {
+      var email =  document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      
+      //For new registration
+      createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        alert("Registration successfully!!");
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        console.log(errorMessage);
+        alert(error);
+      });		  		  
+    });
+    //----- End
+    //----- Login code start	  
+    document.getElementById("login").addEventListener("click", function() {
+      var email =  document.getElementById("login_email").value;
+      var password = document.getElementById("login_password").value;
+
+      signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        alert(user.email+" Login successfully!!!");
+        window.location.assign("personalWebpage.html")
+        // document.getElementById('logout').style.display = 'block';
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert(errorMessage);
+      });		  		  
+    });
+    //----- End
+    //----- Logout code start	  
+    document.getElementById("logout").addEventListener("click", function() {
+      signOut(auth).then(() => {
+        // Sign-out successful.
+        console.log('Sign-out successful.');
+        alert('Sign-out successful.');
+        document.getElementById('logout').style.display = 'none';
+      }).catch((error) => {
+        // An error happened.
+        console.log('An error happened.');
+      });		  		  
+    });
+    //----- End
+  </script>
 </body>
 </html>
