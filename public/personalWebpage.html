@@ -143,26 +143,25 @@
 
   </script>
   <script type="module">
-
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-    
+
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-      apiKey: "AIzaSyAwFhY16WbjZ2kjnxk7U8gH6G3xEYEYwk8",
-      authDomain: "pbbapp-3cda1.firebaseapp.com",
-      projectId: "pbbapp-3cda1",
-      storageBucket: "pbbapp-3cda1.appspot.com",
-      messagingSenderId: "248758143610",
-      appId: "1:248758143610:web:37bd5b05082b7cac1e09c3",
-      measurementId: "G-NJEBDSWJYC"
+    apiKey: "AIzaSyCsdD9qPlBrM_QX9MVSp_iLz9JTx49quB4",
+    authDomain: "mypersonalwebpage-d961c.firebaseapp.com",
+    projectId: "mypersonalwebpage-d961c",
+    storageBucket: "mypersonalwebpage-d961c.appspot.com",
+    messagingSenderId: "615299159599",
+    appId: "1:615299159599:web:d525eee58e1074b21258da",
+    measurementId: "G-RYYZ2758GF"
     };
-    
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
@@ -176,7 +175,7 @@
         console.log('Sign-out successful.');
         alert('Sign-out successful.');
         window.location.assign("index.html")
-        document.getElementById('logout').style.display = 'none';
+        // document.getElementById('logout').style.display = 'none';
       }).catch((error) => {
         // An error happened.
         console.log('An error happened.');
